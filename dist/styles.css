@@ -2614,7 +2614,7 @@ img {
 }
 
 .s-overlay.ds.ms:before {
-    background-color: #251b19;
+    background-color: #251b19a8;
     opacity: .9
 }
 
@@ -2630,7 +2630,9 @@ img {
     left: 0;
     position: absolute;
     right: 0;
-    top: 0
+    top: 0;
+    backdrop-filter: blur(6px);
+    opacity: 1 !important;
 }
 
 .gradient-background:before {
