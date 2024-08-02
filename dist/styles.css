@@ -2632,8 +2632,11 @@ img {
     position: absolute;
     right: 0;
     top: 0;
-    backdrop-filter: blur(6px);
-    opacity: 1 !important;
+    backdrop-filter: blur(6px)
+}
+
+.header-bg:before{
+    opacity: unset !important;
 }
 
 .gradient-background:before {
