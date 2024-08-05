@@ -296,22 +296,22 @@ setTimeout(() => {
 
 
 
-$('.form-sites').on('submit', function (e){
-    e.preventDefault();
-    const data = $(e.target).serialize();
-
-    $.ajax({
-        url: `./send-email.php`,
-        method: 'post',
-        dataType: 'json',
-        data: data,
-        success: function(_data){
-            console.log(_data)
-        }
-    });
-
-})
-
+// $('.form-sites').on('submit', function (e){
+//     e.preventDefault();
+//     const data = $(e.target).serialize();
+//
+//     $.ajax({
+//         url: `./send-email.php`,
+//         method: 'post',
+//         dataType: 'json',
+//         data: data,
+//         success: function(_data){
+//             console.log(_data)
+//         }
+//     });
+//
+// })
+//
 $('.header-calc').on('submit', function (e){
     e.preventDefault();
     const count = e.target.count.value;
@@ -322,7 +322,7 @@ $('.header-calc').on('submit', function (e){
     const data = $(e.target).serialize();
 
     $.ajax({
-        url: `./send-email.php`,
+        url: `https://formspree.io/f/mwpeojln`,
         method: 'post',
         dataType: 'json',
         data: data,
