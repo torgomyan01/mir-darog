@@ -589,10 +589,6 @@ AOS.init();
       });
     });
 
-    //toTop
-    if ($().UItoTop) {
-      $().UItoTop({ easingType: "easeInOutQuart" });
-    }
 
     //parallax
     if ($().parallax) {
