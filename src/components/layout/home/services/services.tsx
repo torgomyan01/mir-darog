@@ -1,7 +1,7 @@
 import React from "react";
 import { RandomKey } from "@/utils/helpers";
 import Image from "next/image";
-import {SITE_URL} from "@/utils/consts";
+import { SITE_URL } from "@/utils/consts";
 import Link from "next/link";
 
 const services = [
