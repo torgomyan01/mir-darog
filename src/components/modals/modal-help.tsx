@@ -11,7 +11,7 @@ function ModalHelp() {
   useEffect(() => {
     setTimeout(() => {
       setModal(true);
-    }, 1000 * 30);
+    }, 1000 * 60);
   }, []);
 
   function Submit(e: any) {

@@ -1,37 +1,39 @@
 import React from "react";
 import { RandomKey } from "@/utils/helpers";
 import Image from "next/image";
+import {SITE_URL} from "@/utils/consts";
+import Link from "next/link";
 
 const services = [
   {
     name: "Укладка асфальта",
     image: "/images/services/laying-asphalt.webp",
-    url: "",
+    url: SITE_URL.ASPHALT_LAYING,
   },
   {
     name: "Дороги с нуля",
     image: "/images/services/roads-from-zero.webp",
-    url: "",
+    url: "#",
   },
   {
     name: "Малых площадей",
     image: "/images/services/small-squares.webp",
-    url: "",
+    url: "#",
   },
   {
     name: "Крошка",
     image: "/images/services/chit.webp",
-    url: "",
+    url: "#",
   },
   {
     name: "Ямочный ремонт",
     image: "/images/services/pothole-repair.webp",
-    url: "",
+    url: "#",
   },
   {
     name: "Бордюров",
     image: "/images/services/borders.webp",
-    url: "",
+    url: "#",
   },
 ];
 
@@ -72,7 +74,7 @@ function Services() {
                   key={RandomKey()}
                   className="col-12 col-sm-6 col-lg-4 mb-5 vertical-item text-center content-padding content-box-shadow content-up padding-small item-service layout-2"
                 >
-                  <a href="#Installationcurbs" className="modal-open-full">
+                  <Link href={service.url} className="modal-open-full">
                     <div className="item-media">
                       <Image
                         src={service.image}
@@ -86,7 +88,7 @@ function Services() {
                         <span className="text-[20px]">{service.name}</span>
                       </h5>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               ))}
             </div>

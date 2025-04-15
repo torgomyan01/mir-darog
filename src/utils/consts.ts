@@ -1,5 +1,6 @@
 export const SITE_URL = {
   HOME: "/",
+  ASPHALT_LAYING: "/asphalt-laying",
 };
 
 export const sliderItems = [

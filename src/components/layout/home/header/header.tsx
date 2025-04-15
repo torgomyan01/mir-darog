@@ -3,7 +3,11 @@ import HeaderSlider from "@/components/layout/home/header/header-slider";
 import { useDispatch } from "react-redux";
 import { setModalCalc } from "@/redux/modals";
 
-function Header() {
+interface IProps {
+  title: React.ReactNode | string;
+}
+
+function Header({ title }: IProps) {
   const dispatch = useDispatch();
 
   const openModalCalc = () => dispatch(setModalCalc(true));
@@ -28,15 +32,9 @@ function Header() {
                           <div className="intro_layers_wrapper">
                             <div className="intro_layers">
                               <div className="intro_layer main-title animated fadeInLeft">
-                                <h1 className="!text-white font-bold text-[30px] sm:text-[45px] lg:text-[65px]">
-                                  <span className="d-block text-white">
-                                    Асфальтирование
-                                  </span>
-                                  дорог{" "}
-                                  <span className="color-main2">
-                                    ОТ 320 ₽/М2
-                                  </span>
-                                </h1>
+                                <h2 className="!text-white font-bold text-[30px] sm:text-[45px] lg:text-[65px]">
+                                  {title}
+                                </h2>
                               </div>
                               <div className="intro_layer text animated fadeInLeft">
                                 <h2 className="fs-16 fw-300 !text-white math-auto">

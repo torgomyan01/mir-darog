@@ -39,7 +39,7 @@ function Contact() {
               <span className="text-capitalize">Связаться с нами</span>
             </p>
             <h3 className="special-heading">
-              <span className="text-[50px]">
+              <span className="text-[30px] sm:text-[50px]">
                 Свяжитесь с нами для любой информации
               </span>
             </h3>

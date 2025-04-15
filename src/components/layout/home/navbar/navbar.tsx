@@ -1,6 +1,9 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { SITE_URL } from "@/utils/consts";
 
 function Navbar() {
   const [navFixed, setNavFixed] = useState<boolean>(false);
@@ -103,25 +106,25 @@ function Navbar() {
                 <nav className="mainmenu_side_wrapper">
                   <ul className="nav menu-click">
                     <li className="active">
-                      <a href="#">Главная</a>
+                      <Link href={SITE_URL.HOME}>Главная</Link>
                     </li>
                     <li className="">
-                      <Link href="#services" className="">
+                      <Link href={`${SITE_URL.HOME}#services`} className="">
                         Услуги
                       </Link>
                     </li>
                     <li className="">
-                      <Link href="#about" className="">
+                      <Link href={`${SITE_URL.HOME}#about`} className="">
                         О Нас
                       </Link>
                     </li>
                     <li className="">
-                      <Link href="#gallery" className="">
+                      <Link href={`${SITE_URL.HOME}#gallery`} className="">
                         Наши Работы
                       </Link>
                     </li>
                     <li className="">
-                      <Link href="#contact" className="">
+                      <Link href={`${SITE_URL.HOME}#contact`} className="">
                         Контакты
                       </Link>
                     </li>
@@ -212,19 +215,21 @@ function Navbar() {
                   <nav className="top-nav justify-nav-center">
                     <ul className="nav sf-menu sf-js-enabled sf-arrows">
                       <li className="active">
-                        <Link href="#">Главная</Link>
+                        <Link href={SITE_URL.HOME}>Главная</Link>
                       </li>
                       <li className="">
-                        <Link href="#services"> Услуги</Link>
+                        <Link href={`${SITE_URL.HOME}#services`}> Услуги</Link>
                       </li>
                       <li className="">
-                        <Link href="#about">О Нас</Link>
+                        <Link href={`${SITE_URL.HOME}#about`}>О Нас</Link>
                       </li>
                       <li className="">
-                        <Link href="#gallery">Наши работы</Link>
+                        <Link href={`${SITE_URL.HOME}#gallery`}>
+                          Наши работы
+                        </Link>
                       </li>
                       <li className="">
-                        <Link href="#contact"> Контакты</Link>
+                        <Link href={`${SITE_URL.HOME}#contact`}> Контакты</Link>
                       </li>
                     </ul>
                   </nav>

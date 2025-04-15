@@ -17,7 +17,14 @@ export default function Home() {
     <MainTemplate>
       <Navbar />
 
-      <Header />
+      <Header
+        title={
+          <React.Fragment>
+            <span className="d-block text-white">Асфальтирование</span>
+            дорог <span className="color-main2">ОТ 320 ₽/М2</span>
+          </React.Fragment>
+        }
+      />
 
       <MobileHeaderSlider />
 
