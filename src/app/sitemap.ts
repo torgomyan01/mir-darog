@@ -12,5 +12,11 @@ export default async function sitemap() {
       changeFrequency: "daily",
       priority: 1,
     },
+    {
+      url: `${proto}://${host}/asphalt-laying`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 1,
+    },
   ];
 }
