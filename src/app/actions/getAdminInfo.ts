@@ -16,24 +16,23 @@ async function getRedisClient() {
   return redisClient;
 }
 
-export async function SaveCalcInfo(data: ICalcForm) {
+export async function getAdminData() {
   try {
     const redis = await getRedisClient();
 
-    const getOldData = await redis.get(redisKeys.calc_value);
-
-    const array = getOldData ? JSON.parse(getOldData) : [];
-    array.push(data);
-    await redis.set(redisKeys.calc_value, JSON.stringify(array));
+    const getOldData = await redis.get(redisKeys.callBack);
+    const getCalcValue = await redis.get(redisKeys.calc_value);
 
     return {
       status: 1,
+      data: {
+        callback: getOldData ? JSON.parse(getOldData) : getOldData,
+        calcRegister: getCalcValue ? JSON.parse(getCalcValue) : getCalcValue,
+      },
     };
   } catch (error) {
     return {
       status: 0,
-      message: "Redis error",
-      error: (error as Error).message,
     };
   }
 }

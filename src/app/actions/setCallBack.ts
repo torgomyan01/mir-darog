@@ -22,11 +22,9 @@ export async function SetCallBack(data: any) {
 
     const getOldData = await redis.get(redisKeys.callBack);
 
-    if (getOldData) {
-      const array = JSON.parse(getOldData as string);
-      array.push(data);
-      await redis.set(redisKeys.callBack, JSON.stringify(array));
-    }
+    const array = getOldData ? JSON.parse(getOldData) : [];
+    array.push(data);
+    await redis.set(redisKeys.callBack, JSON.stringify(array));
 
     return {
       status: 1,
