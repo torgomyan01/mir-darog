@@ -30,7 +30,7 @@ export async function getAdminData() {
         calcRegister: getCalcValue ? JSON.parse(getCalcValue) : getCalcValue,
       },
     };
-  } catch (error) {
+  } catch {
     return {
       status: 0,
     };
