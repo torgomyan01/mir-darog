@@ -1,6 +1,7 @@
 export const SITE_URL = {
   HOME: "/",
   ASPHALT_LAYING: "/asphalt-laying",
+  PRIVACY_POLICY: "/privacy-policy",
 };
 
 export const sliderItems = [

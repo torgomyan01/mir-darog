@@ -71,22 +71,9 @@ function Footer() {
             </div>
             <div className="col-lg-4">
               <div className="widget widget_mailchimp">
-                <form
-                  className="signup opacity-0"
-                  action="https://formspree.io/f/mwpeojln"
-                  method="post"
-                >
-                  <input
-                    name="email"
-                    type="email"
-                    className="form-control mailchimp_email"
-                    placeholder="Ваше Email"
-                  />
-                  <button type="submit" className="search-submit">
-                    <span className="screen-reader-text">Подписаться</span>
-                  </button>
-                  <div className="response"></div>
-                </form>
+                <Link href={SITE_URL.PRIVACY_POLICY} className="!underline">
+                  Политика конфиденциальности
+                </Link>
               </div>
             </div>
             <div className="col-lg-8 text-center text-lg-right">
