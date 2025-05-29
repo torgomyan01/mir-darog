@@ -18,5 +18,17 @@ export default async function sitemap() {
       changeFrequency: "daily",
       priority: 1,
     },
+    {
+      url: `${proto}://${host}/privacy-policy`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 1,
+    },
+    {
+      url: `${proto}://${host}/roads-from-scratch`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 1,
+    },
   ];
 }
