@@ -1,6 +1,7 @@
 export const SITE_URL = {
   HOME: "/",
   ASPHALT_LAYING: "/asphalt-laying",
+  ROADS_FROM_SCRATCH: "/roads-from-scratch",
   PRIVACY_POLICY: "/privacy-policy",
 };
 

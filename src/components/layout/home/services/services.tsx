@@ -13,7 +13,7 @@ const services = [
   {
     name: "Дороги с нуля",
     image: "/images/services/roads-from-zero.webp",
-    url: "#",
+    url: SITE_URL.ROADS_FROM_SCRATCH,
   },
   {
     name: "Малых площадей",
