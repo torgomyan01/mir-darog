@@ -6,7 +6,7 @@ import RoadsFromScratchContent from "@/app/roads-from-scratch/roads-from-scratch
 export async function generateMetadata() {
   return {
     title:
-      "Укладка асфальта  в Москве и Московской области – качественно и выгодно",
+      "Дорога с нуля «под ключ» в Москве и Московской области – качественно и выгодно",
     description:
       "Асфальтирование и укладка брусчатки в Воскресенском: профессиональные дорожные работы по выгодной цене за м2 асфальта.",
     keywords:
