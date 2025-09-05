@@ -2,6 +2,10 @@ export const SITE_URL = {
   HOME: "/",
   ASPHALT_LAYING: "/asphalt-laying",
   ROADS_FROM_SCRATCH: "/roads-from-scratch",
+  SMALL_AREAS: "/small-areas",
+  CHIT: "/chit",
+  POTHOLE_REPAIR: "/pothole-repair",
+  BORDERS: "/borders",
   PRIVACY_POLICY: "/privacy-policy",
 };
 

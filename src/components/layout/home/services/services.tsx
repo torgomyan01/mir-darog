@@ -18,22 +18,22 @@ const services = [
   {
     name: "Малых площадей",
     image: "/images/services/small-squares.webp",
-    url: "#",
+    url: SITE_URL.SMALL_AREAS,
   },
   {
     name: "Крошка",
     image: "/images/services/chit.webp",
-    url: "#",
+    url: SITE_URL.CHIT,
   },
   {
     name: "Ямочный ремонт",
     image: "/images/services/pothole-repair.webp",
-    url: "#",
+    url: SITE_URL.POTHOLE_REPAIR,
   },
   {
     name: "Бордюров",
     image: "/images/services/borders.webp",
-    url: "#",
+    url: SITE_URL.BORDERS,
   },
 ];
 
