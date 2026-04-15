@@ -1,7 +1,6 @@
 "use client";
 
 import { Dialog, DialogContent } from "@mui/material";
-import { Button } from "@mui/base";
 import React from "react";
 import { IMaskInput } from "react-imask";
 import { useDispatch, useSelector } from "react-redux";
@@ -107,13 +106,14 @@ function ModalCalc() {
               >
                 рассчитывать
               </button>
-              <Button
+              <button
                 autoFocus
                 className="btn btn-secondary px-4 sm:ml-2 w-full sm:w-auto"
+                type="button"
                 onClick={closeModalCalc}
               >
                 Закрыть
-              </Button>
+              </button>
             </div>
           </div>
         </form>
