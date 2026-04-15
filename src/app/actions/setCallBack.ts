@@ -1,39 +1,44 @@
 "use server";
 
-import { createClient } from "redis";
-import { redisKeys } from "@/utils/consts";
+import { sendLeadToTelegram } from "@/lib/telegram-notify";
 
-let redisClient: ReturnType<typeof createClient> | null = null;
+export async function SetCallBack(data: {
+  id: string;
+  name: string;
+  phone: string;
+  message: string;
+  preferredContact?: "phone" | "whatsapp" | "telegram";
+}) {
+  const contactMap: Record<"phone" | "whatsapp" | "telegram", string> = {
+    phone: "Телефон",
+    whatsapp: "WhatsApp",
+    telegram: "Telegram",
+  };
+  const preferredContact =
+    data.preferredContact && contactMap[data.preferredContact]
+      ? contactMap[data.preferredContact]
+      : "Телефон";
 
-async function getRedisClient() {
-  if (!redisClient) {
-    redisClient = createClient({
-      url: process.env.REDIS_URL, // Կարող է լինել նաև տեղական host
-    });
-    await redisClient.connect();
+  const messageParts = [
+    data.message?.trim() ? data.message.trim() : "Без комментария",
+    "",
+    `Предпочтительный способ связи: ${preferredContact}`,
+  ];
+
+  const tg = await sendLeadToTelegram({
+    name: data.name,
+    phone: data.phone,
+    message: messageParts.join("\n"),
+  });
+
+  if (!tg.ok) {
+    console.warn("[SetCallBack] Telegram:", tg.error);
+    return {
+      status: 0 as const,
+      message: "Telegram failed",
+      error: tg.error,
+    };
   }
 
-  return redisClient;
-}
-
-export async function SetCallBack(data: any) {
-  try {
-    const redis = await getRedisClient();
-
-    const getOldData = await redis.get(redisKeys.callBack);
-
-    const array = getOldData ? JSON.parse(getOldData) : [];
-    array.push(data);
-    await redis.set(redisKeys.callBack, JSON.stringify(array));
-
-    return {
-      status: 1,
-    };
-  } catch (error) {
-    return {
-      status: 0,
-      message: "Redis error",
-      error: (error as Error).message,
-    };
-  }
+  return { status: 1 as const };
 }

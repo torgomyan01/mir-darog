@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import { IMaskInput } from "react-imask";
 import { SetCallBack } from "@/app/actions/setCallBack";
 import { RandomKey } from "@/utils/helpers";
 
@@ -86,12 +87,13 @@ function Contact() {
                       <label htmlFor="email333">
                         Номер телефона<span className="required">*</span>
                       </label>
-                      <input
-                        type="text"
+                      <IMaskInput
+                        type="tel"
                         required
                         name="phone"
                         id="email333"
                         className="form-control def-mask-input"
+                        mask="+{7} (000) 000-00-00"
                         placeholder="Номер телефона *"
                       />
                     </div>

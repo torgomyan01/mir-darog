@@ -1,24 +1,32 @@
-"use server";
+import MainTemplate from "@/components/common/main-template/main-template";
+import Breadcrumbs from "@/components/common/breadcrumbs/breadcrumbs";
+import Navbar from "@/components/layout/home/navbar/navbar";
+import SalesLanding from "@/components/landing/sales-landing";
+import { trailServicePage } from "@/lib/breadcrumb-trails";
+import { buildServiceMetadata } from "@/lib/seo";
+import { getServiceBySlug } from "@/lib/seo-data";
 
-import React from "react";
-import RoadsFromScratchContent from "@/app/roads-from-scratch/roads-from-scratch-content";
+const LEGACY_PATH = "/roads-from-scratch";
+const service = getServiceBySlug("dorozhnye-raboty-pod-klyuch");
 
 export async function generateMetadata() {
-  return {
-    title:
-      "Дорога с нуля «под ключ» в Москве и Московской области – качественно и выгодно",
-    description:
-      "Асфальтирование и укладка брусчатки в Воскресенском: профессиональные дорожные работы по выгодной цене за м2 асфальта.",
-    keywords:
-      "асфальтирование, м2, цена +за м2, асфальт, брусчатка тротуарная, город дорог, Воскресенске, Дорожные работы, Ступинский район, Коломна район, Санкт-Петербург",
-    alternates: {
-      canonical: "https://www.mir-darog.ru/roads-from-scratch",
-    },
-  };
+  return service ? buildServiceMetadata(service) : {};
 }
 
 function Page() {
-  return <RoadsFromScratchContent />;
+  if (!service) {
+    return null;
+  }
+
+  return (
+    <MainTemplate>
+      <Navbar />
+      <div className="container">
+        <Breadcrumbs items={trailServicePage(service, LEGACY_PATH)} />
+      </div>
+      <SalesLanding service={service} />
+    </MainTemplate>
+  );
 }
 
 export default Page;

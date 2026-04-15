@@ -1,23 +1,32 @@
-"use server";
+import MainTemplate from "@/components/common/main-template/main-template";
+import Breadcrumbs from "@/components/common/breadcrumbs/breadcrumbs";
+import Navbar from "@/components/layout/home/navbar/navbar";
+import SalesLanding from "@/components/landing/sales-landing";
+import { trailServicePage } from "@/lib/breadcrumb-trails";
+import { buildServiceMetadata } from "@/lib/seo";
+import { getServiceBySlug } from "@/lib/seo-data";
 
-import React from "react";
-import Chit from "@/app/chit/chit";
+const LEGACY_PATH = "/chit";
+const service = getServiceBySlug("blagoustroystvo-territoriy");
 
 export async function generateMetadata() {
-  return {
-    title: "Асфальтовая крошка — экономичное решение для надёжного покрытия",
-    description:
-      "Асфальтовая крошка — экономичное и надёжное дорожное покрытие. Компания «Максстрой» поставляет и укладывает асфальтовую крошку под ключ: подготовка основания, утрамбовка и обработка битумом. Цена от 140 ₽ за м². Бесплатный выезд и гарантии.",
-    keywords:
-      "асфальтовая крошка, укладка асфальтовой крошки, асфальтовая крошка цена, асфальтовая крошка Москва, асфальтовая крошка доставка, услуги асфальтовой крошки, асфальтовая крошка Подмосковье, купить асфальтовую крошку, укладка крошки под ключ, укладка асфальтовой крошки недорого",
-    alternates: {
-      canonical: "https://www.mir-darog.ru/chit",
-    },
-  };
+  return service ? buildServiceMetadata(service) : {};
 }
 
 function Page() {
-  return <Chit />;
+  if (!service) {
+    return null;
+  }
+
+  return (
+    <MainTemplate>
+      <Navbar />
+      <div className="container">
+        <Breadcrumbs items={trailServicePage(service, LEGACY_PATH)} />
+      </div>
+      <SalesLanding service={service} />
+    </MainTemplate>
+  );
 }
 
 export default Page;

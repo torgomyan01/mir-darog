@@ -1,17 +1,7 @@
 import PrivacyPolicy from "@/app/privacy-policy/privacy-policy";
+import { buildPrivacyMetadata } from "@/lib/seo";
 
-export async function generateMetadata() {
-  return {
-    title: "Политика конфиденциальности Мир Дарог",
-    description:
-      "Асфальтирование и укладка брусчатки в Воскресенском: профессиональные дорожные работы по выгодной цене за м2 асфальта.",
-    keywords:
-      "асфальтирование, м2, цена +за м2, асфальт, брусчатка тротуарная, город дорог, Воскресенске, Дорожные работы, Ступинский район, Коломна район, Санкт-Петербург",
-    alternates: {
-      canonical: "https://www.mir-darog.ru/privacy-policy",
-    },
-  };
-}
+export const metadata = buildPrivacyMetadata();
 
 function Page() {
   return <PrivacyPolicy />;

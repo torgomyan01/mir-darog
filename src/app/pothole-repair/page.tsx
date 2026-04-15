@@ -1,23 +1,32 @@
-"use server";
+import MainTemplate from "@/components/common/main-template/main-template";
+import Breadcrumbs from "@/components/common/breadcrumbs/breadcrumbs";
+import Navbar from "@/components/layout/home/navbar/navbar";
+import SalesLanding from "@/components/landing/sales-landing";
+import { trailServicePage } from "@/lib/breadcrumb-trails";
+import { buildServiceMetadata } from "@/lib/seo";
+import { getServiceBySlug } from "@/lib/seo-data";
 
-import React from "react";
-import PotholeRepair from "@/app/pothole-repair/pothole-repair";
+const LEGACY_PATH = "/pothole-repair";
+const service = getServiceBySlug("yamochny-remont");
 
 export async function generateMetadata() {
-  return {
-    title: "Ямочный ремонт — эффективное устранение выбоин и трещин",
-    description:
-      "Ямочный ремонт дорог в Москве и Подмосковье. Компания «Максстрой» выполняет ямочный ремонт асфальта горячим и холодным способом: вырезание повреждения, обработка битумом, укладка смеси и уплотнение. Быстро, качественно и с гарантией по честной цене.",
-    keywords:
-      "ямочный ремонт, ямочный ремонт асфальта, ремонт выбоин, ямочный ремонт дорог, ямочный ремонт Москва, устранение ям, холодный асфальт, горячий асфальт, ямочный ремонт цена, ямочный ремонт с гарантией",
-    alternates: {
-      canonical: "https://www.mir-darog.ru/pothole-repair",
-    },
-  };
+  return service ? buildServiceMetadata(service) : {};
 }
 
 function Page() {
-  return <PotholeRepair />;
+  if (!service) {
+    return null;
+  }
+
+  return (
+    <MainTemplate>
+      <Navbar />
+      <div className="container">
+        <Breadcrumbs items={trailServicePage(service, LEGACY_PATH)} />
+      </div>
+      <SalesLanding service={service} />
+    </MainTemplate>
+  );
 }
 
 export default Page;

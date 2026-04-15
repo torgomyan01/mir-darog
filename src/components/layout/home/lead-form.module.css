@@ -1,0 +1,237 @@
+.form {
+  display: grid;
+  gap: 14px;
+  border: 1px solid #dfe6f5;
+  border-radius: 18px;
+  padding: 18px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(246, 250, 255, 1) 0%, #fff 42%), #fff;
+}
+
+.head {
+  display: grid;
+  gap: 6px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #2d5ca8;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: #1d2538;
+  font-size: clamp(1.15rem, 3.8vw, 1.6rem);
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.subtitle {
+  margin: 0;
+  color: #4a556f;
+  font-size: 0.92rem;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.row {
+  display: grid;
+  gap: 10px;
+}
+
+.label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #46516b;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border: 1px solid #d4dced;
+  background: #fdfefe;
+  border-radius: 12px;
+  padding: 12px 13px;
+  color: #1f273b;
+  font-size: 0.96rem;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #9aa3b7;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #79a8fb;
+  box-shadow: 0 0 0 4px rgba(94, 148, 255, 0.14);
+  background: #fff;
+}
+
+.switcher {
+  border: 1px solid #d4dced;
+  background: #f6f9ff;
+  border-radius: 12px;
+  padding: 4px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.switcherButton {
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: #30405f;
+  padding: 9px 10px;
+  font-weight: 700;
+  font-size: 0.84rem;
+}
+
+.switcherButtonActive {
+  color: #16213a;
+  background: #fff;
+  box-shadow: 0 8px 14px rgba(29, 48, 85, 0.08);
+}
+
+.submit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(165deg, #4a7de8 0%, #3568cf 42%, #2a5298 100%);
+  padding: 14px 20px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.18) inset,
+    0 10px 24px rgba(42, 82, 152, 0.28),
+    0 2px 6px rgba(30, 60, 120, 0.12);
+  transition:
+    background 0.22s ease,
+    transform 0.2s ease,
+    box-shadow 0.22s ease;
+}
+
+.submit::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 48%
+  );
+  opacity: 0.85;
+}
+
+.submit:hover:not(:disabled) {
+  background: linear-gradient(165deg, #5a8af0 0%, #3f74d8 45%, #2f5aa8 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.22) inset,
+    0 14px 32px rgba(42, 82, 152, 0.34),
+    0 4px 10px rgba(30, 60, 120, 0.14);
+  transform: translateY(-1px);
+}
+
+.submit:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.12) inset,
+    0 6px 16px rgba(42, 82, 152, 0.26);
+}
+
+.submit:disabled {
+  opacity: 0.78;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submitInner {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+}
+
+.submitLabel {
+  line-height: 1.25;
+}
+
+.submitSpinner {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-top-color: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  animation: submitSpin 0.65s linear infinite;
+}
+
+.status {
+  margin: 4px 0 0;
+  border-radius: 12px;
+  border: 1px solid #dce4f3;
+  background: #f7faff;
+  padding: 11px 12px;
+  color: #36455f;
+  font-size: 0.9rem;
+}
+
+.statusError {
+  border-color: #f1cfd2;
+  background: #fff5f6;
+  color: #7f1f2d;
+}
+
+.input:focus-visible,
+.textarea:focus-visible,
+.switcherButton:focus-visible,
+.submit:focus-visible {
+  outline: 2px solid #2c5baa;
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .form {
+    padding: 20px;
+  }
+
+  .row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@keyframes submitSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}

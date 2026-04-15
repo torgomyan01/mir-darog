@@ -1,34 +1,21 @@
-import { headers } from "next/headers";
+import type { MetadataRoute } from "next";
+import { CITY_ITEMS, SERVICE_ITEMS, SITE_BASE_URL } from "@/lib/seo-data";
 
-export default async function sitemap() {
-  const headersList = await headers();
-  const host = await headersList.get("host");
-  const proto = await headersList.get("x-forwarded-proto");
+export default function sitemap(): MetadataRoute.Sitemap {
+  const staticPages = ["/", "/privacy-policy", "/uslugi", "/geo"];
 
-  return [
-    {
-      url: `${proto}://${host}`,
+  const servicePages = SERVICE_ITEMS.map((item) => `/uslugi/${item.slug}`);
+  const geoPages = CITY_ITEMS.flatMap((city) =>
+    SERVICE_ITEMS.map((service) => `/geo/${city.slug}/${service.slug}`),
+  );
+  const projectStories = CITY_ITEMS.map((city) => `/proekty/${city.slug}`);
+
+  return [...staticPages, ...servicePages, ...geoPages, ...projectStories].map(
+    (path) => ({
+      url: `${SITE_BASE_URL}${path}`,
       lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 1,
-    },
-    {
-      url: `${proto}://${host}/asphalt-laying`,
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 1,
-    },
-    {
-      url: `${proto}://${host}/privacy-policy`,
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 1,
-    },
-    {
-      url: `${proto}://${host}/roads-from-scratch`,
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 1,
-    },
-  ];
+      changeFrequency: "weekly",
+      priority: path === "/" ? 1 : path.startsWith("/proekty/") ? 0.75 : 0.8,
+    }),
+  );
 }

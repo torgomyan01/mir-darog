@@ -1,24 +1,32 @@
-"use server";
+import MainTemplate from "@/components/common/main-template/main-template";
+import Breadcrumbs from "@/components/common/breadcrumbs/breadcrumbs";
+import Navbar from "@/components/layout/home/navbar/navbar";
+import SalesLanding from "@/components/landing/sales-landing";
+import { trailServicePage } from "@/lib/breadcrumb-trails";
+import { buildServiceMetadata } from "@/lib/seo";
+import { getServiceBySlug } from "@/lib/seo-data";
 
-import React from "react";
-import AsphaltLaying from "@/app/asphalt-laying/asphalt-laying";
+const LEGACY_PATH = "/asphalt-laying";
+const service = getServiceBySlug("asfaltirovanie-dorog");
 
 export async function generateMetadata() {
-  return {
-    title:
-      "Укладка асфальта  в Москве и Московской области – качественно и выгодно",
-    description:
-      "Асфальтирование и укладка брусчатки в Воскресенском: профессиональные дорожные работы по выгодной цене за м2 асфальта.",
-    keywords:
-      "асфальтирование, м2, цена +за м2, асфальт, брусчатка тротуарная, город дорог, Воскресенске, Дорожные работы, Ступинский район, Коломна район, Санкт-Петербург",
-    alternates: {
-      canonical: "https://www.mir-darog.ru/asphalt-laying",
-    },
-  };
+  return service ? buildServiceMetadata(service) : {};
 }
 
 function Page() {
-  return <AsphaltLaying />;
+  if (!service) {
+    return null;
+  }
+
+  return (
+    <MainTemplate>
+      <Navbar />
+      <div className="container">
+        <Breadcrumbs items={trailServicePage(service, LEGACY_PATH)} />
+      </div>
+      <SalesLanding service={service} />
+    </MainTemplate>
+  );
 }
 
 export default Page;

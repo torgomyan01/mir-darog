@@ -3,6 +3,7 @@
 import { Dialog, DialogContent } from "@mui/material";
 import { Button } from "@mui/base";
 import React from "react";
+import { IMaskInput } from "react-imask";
 import { useDispatch, useSelector } from "react-redux";
 import { RandomKey } from "@/utils/helpers";
 import { setModalCalc } from "@/redux/modals";
@@ -63,11 +64,12 @@ function ModalCalc() {
             </div>
             <div className="col-12 px-0">
               <label className="input-box">
-                <input
-                  type="text"
+                <IMaskInput
+                  type="tel"
                   name="phone"
                   className="def-mask-input"
                   required
+                  mask="+{7} (000) 000-00-00"
                   placeholder="Ваше телефон *"
                 />
               </label>

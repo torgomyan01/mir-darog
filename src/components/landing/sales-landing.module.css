@@ -1,0 +1,148 @@
+.section {
+  padding: 90px 0;
+}
+
+.hero {
+  border: 1px solid #e6eaf3;
+  border-radius: 22px;
+  background: radial-gradient(circle at 10% 0%, #fff5ec 0%, #ffffff 45%);
+  padding: 28px;
+  display: grid;
+  gap: 16px;
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #d56e1f;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.85rem, 5.8vw, 3.3rem);
+  line-height: 1.05;
+  font-weight: 800;
+  color: #1b2130;
+}
+
+.lead {
+  margin: 0;
+  max-width: 820px;
+  font-size: clamp(1rem, 2.2vw, 1.12rem);
+  color: #535a6d;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ctaPrimary {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ef8a3d 0%, #df7422 100%);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(223, 116, 34, 0.2);
+}
+
+.ctaSecondary {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 1px solid #d6dcec;
+  color: #1f2636;
+  background: #fff;
+  font-weight: 700;
+}
+
+.contentGrid {
+  margin-top: 24px;
+  display: grid;
+  gap: 14px;
+}
+
+.card {
+  border-radius: 16px;
+  border: 1px solid #e7eaf2;
+  padding: 20px;
+  background: #fff;
+}
+
+.cardTitle {
+  margin: 0 0 8px;
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: #202636;
+}
+
+.cardText {
+  margin: 0;
+  color: #555d72;
+}
+
+.photosGrid {
+  margin-top: 24px;
+  display: grid;
+  gap: 14px;
+}
+
+.photoCard {
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid #e6eaf2;
+  background: #fff;
+}
+
+.photoImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 600 / 360;
+  object-fit: cover;
+}
+
+.photoCaption {
+  margin: 0;
+  padding: 10px 12px 14px;
+  color: #4e5568;
+}
+
+.faq {
+  margin-top: 30px;
+  display: grid;
+  gap: 10px;
+}
+
+.faq details {
+  border-radius: 12px;
+  border: 1px solid #e7eaf2;
+  background: #fff;
+  padding: 12px 14px;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: #232a3a;
+}
+
+.faqAnswer {
+  margin: 10px 0 0;
+  color: #555d72;
+}
+
+@media (min-width: 768px) {
+  .contentGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .photosGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

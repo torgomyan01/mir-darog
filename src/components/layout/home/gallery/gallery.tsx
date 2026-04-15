@@ -2,7 +2,7 @@
 
 import { RandomKey } from "@/utils/helpers";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CircularProgress } from "@mui/material";
 
 const AllImages = [
@@ -46,9 +46,15 @@ const types = [
 function Gallery() {
   const [images, setImages] = useState<string[]>([]);
 
-  setTimeout(() => {
-    setImages(AllImages);
-  }, 5000);
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setImages(AllImages);
+    }, 500);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <section
@@ -89,9 +95,10 @@ function Gallery() {
                       <div className="item-media">
                         <Image
                           src={`/${image}`}
-                          alt=""
-                          width="1140"
-                          height="583"
+                          alt="Выполненный дорожный проект"
+                          width={1140}
+                          height={583}
+                          sizes="(max-width: 767px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                         <div className="media-links">
                           <div className="links-wrap">

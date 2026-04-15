@@ -1,6 +1,9 @@
 "use client";
 
 import MainTemplate from "@/components/common/main-template/main-template";
+import Breadcrumbs from "@/components/common/breadcrumbs/breadcrumbs";
+import Navbar from "@/components/layout/home/navbar/navbar";
+import { trailPrivacy } from "@/lib/breadcrumb-trails";
 import React from "react";
 import Contact from "@/components/layout/home/contact/contact";
 import Link from "next/link";
@@ -8,7 +11,9 @@ import Link from "next/link";
 function PrivacyPolicy() {
   return (
     <MainTemplate>
+      <Navbar />
       <div className="container !max-w-[1000px] py-10 mb-[100px] relative z-20">
+        <Breadcrumbs items={trailPrivacy()} />
         <h1 className="mb-6 font-bold text-[25px]">
           Политика в отношении обработки персональных данных
         </h1>

@@ -1,15 +1,12 @@
-import { headers } from "next/headers";
+import type { MetadataRoute } from "next";
+import { SITE_BASE_URL } from "@/lib/seo-data";
 
-export default async function robots() {
-  const headersList = await headers();
-  const host = await headersList.get("host");
-  const proto = await headersList.get("x-forwarded-proto");
-  const disallow = ["/admin"];
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      disallow,
+      disallow: ["/admin"],
     },
-    sitemap: `${proto}://${host}/sitemap.xml`,
+    sitemap: `${SITE_BASE_URL}/sitemap.xml`,
   };
 }

@@ -2,6 +2,7 @@
 
 import { Dialog, DialogContent } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { IMaskInput } from "react-imask";
 import { RandomKey } from "@/utils/helpers";
 import { SetCallBack } from "@/app/actions/setCallBack";
 
@@ -21,6 +22,7 @@ function ModalHelp() {
       id: RandomKey(),
       name: e.target.name.value,
       phone: e.target.phone.value,
+      message: "",
     }).then((res) => {
       if (res.status) {
         alert(
@@ -70,11 +72,12 @@ function ModalHelp() {
                 </div>
                 <div className="col-12 ">
                   <label className="input-box mb-0">
-                    <input
-                      type="text"
+                    <IMaskInput
+                      type="tel"
                       name="phone"
                       required
                       className="def-mask-input"
+                      mask="+{7} (000) 000-00-00"
                       placeholder="Ваше телефон"
                     />
                   </label>

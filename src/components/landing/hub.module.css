@@ -1,0 +1,105 @@
+.section {
+  padding: 90px 0;
+}
+
+.hero {
+  border: 1px solid #e6eaf2;
+  border-radius: 20px;
+  background: #fff;
+  padding: 24px;
+}
+
+.title {
+  margin: 0;
+  color: #1b2130;
+  font-size: clamp(1.8rem, 4.8vw, 2.8rem);
+  font-weight: 800;
+}
+
+.lead {
+  margin: 10px 0 0;
+  color: #565d72;
+}
+
+.grid {
+  margin-top: 18px;
+  display: grid;
+  gap: 14px;
+}
+
+.card {
+  border-radius: 14px;
+  border: 1px solid #e7ebf3;
+  background: #fff;
+  padding: 18px;
+  display: grid;
+  gap: 10px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 24px rgba(19, 29, 50, 0.08);
+}
+
+.imageWrap {
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #ebeff7;
+  background: #f4f7fd;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.cardTitle {
+  margin: 2px 0 0;
+  color: #202636;
+  font-size: 1.06rem;
+  font-weight: 800;
+}
+
+.cardText {
+  margin: 0;
+  color: #565e72;
+  font-weight: 600;
+}
+
+.salesText {
+  margin: 0;
+  color: #414d68;
+  line-height: 1.45;
+}
+
+.seoText {
+  margin: 0;
+  color: #65728e;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 2px;
+  border-radius: 8px;
+  border: 1px solid #d5dced;
+  background: #fff;
+  color: #1f2a41;
+  padding: 8px 12px;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

@@ -48,6 +48,40 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/asphalt-laying",
+        destination: "/uslugi/asfaltirovanie-dorog",
+        permanent: true,
+      },
+      {
+        source: "/pothole-repair",
+        destination: "/uslugi/yamochny-remont",
+        permanent: true,
+      },
+      {
+        source: "/chit",
+        destination: "/uslugi/blagoustroystvo-territoriy",
+        permanent: true,
+      },
+      {
+        source: "/small-areas",
+        destination: "/uslugi/asfaltirovanie-dvorov",
+        permanent: true,
+      },
+      {
+        source: "/roads-from-scratch",
+        destination: "/uslugi/dorozhnye-raboty-pod-klyuch",
+        permanent: true,
+      },
+      {
+        source: "/borders",
+        destination: "/uslugi/ukladka-trotuarnoy-plitki",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -1,23 +1,32 @@
-"use server";
+import MainTemplate from "@/components/common/main-template/main-template";
+import Breadcrumbs from "@/components/common/breadcrumbs/breadcrumbs";
+import Navbar from "@/components/layout/home/navbar/navbar";
+import SalesLanding from "@/components/landing/sales-landing";
+import { trailServicePage } from "@/lib/breadcrumb-trails";
+import { buildServiceMetadata } from "@/lib/seo";
+import { getServiceBySlug } from "@/lib/seo-data";
 
-import React from "react";
-import Borders from "@/app/borders/borders";
+const LEGACY_PATH = "/borders";
+const service = getServiceBySlug("ukladka-trotuarnoy-plitki");
 
 export async function generateMetadata() {
-  return {
-    title: "Установка бордюров — надёжно и профессионально",
-    description:
-      "Установка бордюров в Москве и Подмосковье. Компания «Максстрой» выполняет монтаж дорожных и тротуарных бордюров под ключ. Качественно, надёжно и по доступной цене.",
-    keywords:
-      "установка бордюров, монтаж бордюрного камня, установка дорожных бордюров Москва, тротуарные бордюры цена, бордюрные работы под ключ, укладка бордюров",
-    alternates: {
-      canonical: "https://www.mir-darog.ru/borders",
-    },
-  };
+  return service ? buildServiceMetadata(service) : {};
 }
 
 function Page() {
-  return <Borders />;
+  if (!service) {
+    return null;
+  }
+
+  return (
+    <MainTemplate>
+      <Navbar />
+      <div className="container">
+        <Breadcrumbs items={trailServicePage(service, LEGACY_PATH)} />
+      </div>
+      <SalesLanding service={service} />
+    </MainTemplate>
+  );
 }
 
 export default Page;

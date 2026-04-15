@@ -1,0 +1,29 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+}
+
+.fixedCall {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ef8a3d 0%, #df7422 100%);
+  color: #fff;
+  padding: 10px 14px;
+  box-shadow: 0 14px 24px rgba(223, 116, 34, 0.25);
+  font-weight: 700;
+}
+
+.fixedCall:hover {
+  color: #fff;
+}

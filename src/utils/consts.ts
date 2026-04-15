@@ -1,5 +1,8 @@
 export const SITE_URL = {
   HOME: "/",
+  SERVICES_HUB: "/uslugi",
+  GEO_HUB: "/geo",
+  OUR_WORKS: "/nashi-raboty",
   ASPHALT_LAYING: "/asphalt-laying",
   ROADS_FROM_SCRATCH: "/roads-from-scratch",
   SMALL_AREAS: "/small-areas",
@@ -31,8 +34,3 @@ export const sliderItems = [
     text: "Собственный парк из 36 единиц современной дорожной спецтехники",
   },
 ];
-
-export const redisKeys = {
-  calc_value: "calc-value",
-  callBack: "callBack",
-};

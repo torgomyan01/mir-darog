@@ -1,24 +1,32 @@
-"use server";
+import MainTemplate from "@/components/common/main-template/main-template";
+import Breadcrumbs from "@/components/common/breadcrumbs/breadcrumbs";
+import Navbar from "@/components/layout/home/navbar/navbar";
+import SalesLanding from "@/components/landing/sales-landing";
+import { trailServicePage } from "@/lib/breadcrumb-trails";
+import { buildServiceMetadata } from "@/lib/seo";
+import { getServiceBySlug } from "@/lib/seo-data";
 
-import React from "react";
-import SmallAreas from "@/app/small-areas/small-areas";
+const LEGACY_PATH = "/small-areas";
+const service = getServiceBySlug("asfaltirovanie-dvorov");
 
 export async function generateMetadata() {
-  return {
-    title:
-      "Асфальтирование малых площадей «под ключ» ― быстро, качественно и по разумной цене",
-    description:
-      "Асфальтирование малых площадей в Москве и Подмосковье. Компания «Максстрой» выполняет укладку асфальта для дворов, парковок, подъездных дорожек и тротуаров. Быстро, качественно, с гарантией и по честной цене от 800 ₽ за м².",
-    keywords:
-      "асфальтирование малых площадей, асфальтирование малой площади Москва, укладка асфальта во дворе, асфальтирование парковки, асфальтирование подъездных дорожек, асфальтировка небольших территорий, ремонт асфальта малых площадей, цена асфальтирования малых площадей, асфальтирование тротуаров, укладка асфальта под ключ",
-    alternates: {
-      canonical: "https://www.mir-darog.ru/small-areas",
-    },
-  };
+  return service ? buildServiceMetadata(service) : {};
 }
 
 function Page() {
-  return <SmallAreas />;
+  if (!service) {
+    return null;
+  }
+
+  return (
+    <MainTemplate>
+      <Navbar />
+      <div className="container">
+        <Breadcrumbs items={trailServicePage(service, LEGACY_PATH)} />
+      </div>
+      <SalesLanding service={service} />
+    </MainTemplate>
+  );
 }
 
 export default Page;
