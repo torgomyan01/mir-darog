@@ -9,14 +9,16 @@ interface SalesLandingProps {
 }
 
 function SalesLanding({ service, cityName }: SalesLandingProps) {
-  const targetCity = cityName ?? "Москва";
+  const targetCity = cityName ?? "Раменское";
   const heading = `${service.shortTitle} в ${targetCity}`;
 
   return (
     <section className={styles.section}>
       <div className="container">
         <div className={styles.hero}>
-          <p className={styles.kicker}>Дорожная компания в Москве и области</p>
+          <p className={styles.kicker}>
+            Дорожная компания в Коломне, Ступино, Воскресенске и области
+          </p>
           <h1 className={styles.title}>{heading}</h1>
           <p className={styles.lead}>{service.leadText}</p>
           <div className={styles.ctaRow}>

@@ -6,6 +6,7 @@ import {
   BUSINESS_INFO,
   CITY_PROJECT_STORIES,
   PRIMARY_COMMERCIAL_KEYWORDS,
+  SERVICE_AREA_CITIES_SHORT,
   SERVICE_ITEMS,
 } from "@/lib/seo-data";
 
@@ -51,7 +52,7 @@ function HomeRedesign() {
           <div className={styles.heroLayout}>
             <article className={`${styles.heroMain} ${styles.heroMainGlass}`}>
               <p className={styles.kicker}>
-                Дорожная компания в Москве и области
+                Дорожная компания: {SERVICE_AREA_CITIES_SHORT}
               </p>
               <h1 className={styles.title}>
                 Асфальтирование и дорожные работы для частных и коммерческих
@@ -243,7 +244,7 @@ function HomeRedesign() {
                 <div className={styles.contactRow}>
                   <span className={styles.contactLabel}>География</span>
                   <span className={styles.contactValue}>
-                    Москва, Химки, Мытищи, Люберцы и рядом
+                    {SERVICE_AREA_CITIES_SHORT}
                   </span>
                 </div>
               </div>

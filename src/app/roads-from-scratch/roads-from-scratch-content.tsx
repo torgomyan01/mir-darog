@@ -7,6 +7,7 @@ import React from "react";
 import Image from "next/image";
 import Contact from "@/components/layout/home/contact/contact";
 import OurCompany from "@/components/layout/home/our-company/our-company";
+import { SERVICE_AREA_CITIES_SHORT } from "@/lib/seo-data";
 
 function RoadsFromScratchContent() {
   return (
@@ -81,8 +82,9 @@ function RoadsFromScratchContent() {
               Укладка асфальта и ямочный ремонт
             </h2>
             <p className="text-black mb-4">
-              Выполняем качественную укладку асфальта в Московской области.
-              Соблюдаем все нормы и технологии. Также осуществляем ямочный
+              Выполняем качественную укладку асфальта в {SERVICE_AREA_CITIES_SHORT}{" "}
+              и по Московской области. Соблюдаем все нормы и технологии. Также
+              осуществляем ямочный
               ремонт с применением горячей или холодной смеси, в зависимости от
               сезона. В местах, где дорога частично повреждена, восстанавливаем
               только проблемные участки, что позволяет сэкономить и получить

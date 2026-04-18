@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {
   BUSINESS_INFO,
+  SERVICE_AREA_CITIES_SHORT,
   SITE_BASE_URL,
   type CityItem,
   type CityProjectStory,
@@ -8,7 +9,7 @@ import {
 } from "@/lib/seo-data";
 
 const defaultDescription =
-  "Профессиональные дорожные работы в Москве и Московской области: асфальтирование, ремонт дорог, укладка плитки и благоустройство территорий.";
+  `Профессиональные дорожные работы в ${SERVICE_AREA_CITIES_SHORT} и по Московской области: асфальтирование, ремонт дорог, укладка плитки и благоустройство территорий.`;
 
 /** Дефолтное изображение для Open Graph / Twitter (рекомендуемый формат 1200×630) */
 export const DEFAULT_OG_IMAGE = "/images/hero-road-bg.png";
@@ -18,7 +19,7 @@ const defaultOgImageBlock = [
     url: DEFAULT_OG_IMAGE,
     width: 1200,
     height: 630,
-    alt: `${BUSINESS_INFO.brandName} — дорожные работы в Москве и области`,
+    alt: `${BUSINESS_INFO.brandName} — дорожные работы в Московской области`,
   },
 ];
 
@@ -40,7 +41,7 @@ export function buildBaseMetadata(): Metadata {
   return {
     metadataBase: new URL(SITE_BASE_URL),
     title: {
-      default: "Дорожная компания в Москве | Мир-Дорог",
+      default: "Дорожная компания в Московской области | Мир-Дорог",
       template: "%s | Мир-Дорог",
     },
     description: defaultDescription,
@@ -48,13 +49,13 @@ export function buildBaseMetadata(): Metadata {
       type: "website",
       locale: "ru_RU",
       url: SITE_BASE_URL,
-      title: "Дорожная компания в Москве | Мир-Дорог",
+      title: "Дорожная компания в Московской области | Мир-Дорог",
       description: defaultDescription,
       siteName: BUSINESS_INFO.brandName,
       images: defaultOgImageBlock,
     },
     twitter: twitterBlock(
-      "Дорожная компания в Москве | Мир-Дорог",
+      "Дорожная компания в Московской области | Мир-Дорог",
       defaultDescription,
       DEFAULT_OG_IMAGE,
     ),
@@ -65,7 +66,7 @@ export function buildBaseMetadata(): Metadata {
 export function buildHomeMetadata(): Metadata {
   return {
     title: {
-      absolute: "Дорожная компания в Москве | Мир-Дорог",
+      absolute: "Дорожная компания в Московской области | Мир-Дорог",
     },
     description: defaultDescription,
     alternates: {
@@ -75,13 +76,13 @@ export function buildHomeMetadata(): Metadata {
       type: "website",
       locale: "ru_RU",
       url: SITE_BASE_URL,
-      title: "Дорожная компания в Москве | Мир-Дорог",
+      title: "Дорожная компания в Московской области | Мир-Дорог",
       description: defaultDescription,
       siteName: BUSINESS_INFO.brandName,
       images: defaultOgImageBlock,
     },
     twitter: twitterBlock(
-      "Дорожная компания в Москве | Мир-Дорог",
+      "Дорожная компания в Московской области | Мир-Дорог",
       defaultDescription,
       DEFAULT_OG_IMAGE,
     ),
@@ -91,7 +92,7 @@ export function buildHomeMetadata(): Metadata {
 export function buildUslugiHubMetadata(): Metadata {
   const title = "Услуги по асфальтированию и дорожным работам";
   const description =
-    "Каталог услуг: асфальтирование дорог, ремонт, благоустройство и укладка тротуарной плитки в Москве и Московской области.";
+    `Каталог услуг: асфальтирование дорог, ремонт, благоустройство и укладка тротуарной плитки в ${SERVICE_AREA_CITIES_SHORT} и по Московской области.`;
   const path = "/uslugi";
   return {
     title,
@@ -113,7 +114,7 @@ export function buildUslugiHubMetadata(): Metadata {
 export function buildGeoHubMetadata(): Metadata {
   const title = "Дорожные работы по городам";
   const description =
-    "Асфальтирование и ремонт дорог в Москве и городах Московской области.";
+    `Асфальтирование и ремонт дорог в ${SERVICE_AREA_CITIES_SHORT} и других городах Московской области.`;
   const path = "/geo";
   return {
     title,
@@ -223,7 +224,7 @@ export function buildArticleSchema(params: {
 }
 
 export function buildServiceMetadata(service: ServiceItem): Metadata {
-  const title = `${service.shortTitle} в Москве и области`;
+  const title = `${service.shortTitle} в Московской области`;
   const description = `${service.offer} ${service.leadText}`;
   const path = `/uslugi/${service.slug}`;
   const ogImages = [
@@ -339,7 +340,7 @@ export function buildServiceSchema(service: ServiceItem, cityName?: string) {
     "@type": "Service",
     name: cityName
       ? `${service.shortTitle} в ${cityName}`
-      : `${service.shortTitle} в Москве`,
+      : `${service.shortTitle} в Московской области`,
     provider: {
       "@type": "Organization",
       name: BUSINESS_INFO.brandName,

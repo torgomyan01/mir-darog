@@ -21,7 +21,8 @@ export default function GeoHubPage() {
           <article className={styles.hero}>
             <h1 className={styles.title}>Города обслуживания</h1>
             <p className={styles.lead}>
-              Работаем по Москве и близлежащим городам Московской области.
+              Работаем в Коломне, Ступино, Воскресенске, Раменском, Жуковском,
+              Бронницах и других городах Московской области.
             </p>
           </article>
           <div className={styles.grid}>
